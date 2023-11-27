@@ -1,6 +1,7 @@
+
 public class Titanic {
 
-    public static enum Attribute {
+    public enum Attribute {
         NAME,
         PORT,
         CLASS,
@@ -11,9 +12,9 @@ public class Titanic {
         FARE
     }
 
-    public static enum Sex   { MALE, FEMALE, UNKNOWN }
-    public static enum Class { FIRST, SECOND, THIRD, UNKNOWN }
-    public static enum Port  { CHERBOURG, QUEENSTOWN, SOUTHAMPTON, UNKNOWN }
+    public enum Sex   { MALE, FEMALE, UNKNOWN }
+    public enum Class { FIRST, SECOND, THIRD, UNKNOWN }
+    public enum Port  { CHERBOURG, QUEENSTOWN, SOUTHAMPTON, UNKNOWN }
 
     public static class Passenger {
 
@@ -66,7 +67,7 @@ public class Titanic {
         public boolean missing(Attribute attribute) {
             // Determines if the data for this attribute is missing for this passenger.
             switch(attribute) {
-                case NAME:     return this.name.length() == 0;
+                case NAME:     return this.name.isEmpty();
                 case CLASS:    return this.pclass == Class.UNKNOWN;
                 case PORT:     return this.port == Port.UNKNOWN;
                 case SEX:      return this.sex == Sex.UNKNOWN;
@@ -91,5 +92,9 @@ public class Titanic {
             }
             throw new IllegalArgumentException("Invalid attribute: " + attribute);
         }
+
+
     }
 }
+
+
